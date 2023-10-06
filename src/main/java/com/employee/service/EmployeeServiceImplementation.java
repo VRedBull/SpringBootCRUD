@@ -37,19 +37,21 @@ public class EmployeeServiceImplementation implements EmployeeService
 	}
 	}
  
-
-	@SuppressWarnings("deprecation")
 	@Override
 	public Employee getEmployee(int id) {
 		
-		return employeeRepository.getById(id);
+		return employeeRepository.findById(id).orElse(null);
 	}
 
 
 
 	@Override
 	public Employee updateEmployee(int id, Employee employee) {
-		// TODO Auto-generated method stub
+		
+		if(employeeRepository.existsById(id)) {
+			employee.setId(id);
+			return employeeRepository.save(employee);
+		}
 		return null;
 	}
 

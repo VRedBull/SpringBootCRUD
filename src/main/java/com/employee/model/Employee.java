@@ -13,27 +13,35 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.AUTO) 
 	//GeneratedValue to generate id automatically
 	private int id;
-	@Column(name="ename")  
+	  
 	private double salary;
+	
+	private String email;
+	
+	@Column(name="ename")
 	private String name;
 	
 	public Employee() {
 		
 	}
 	
-	public Employee(int id, double salary, String name) {
+	public Employee(int id, double salary, String email, String name) {
 		super();
 		this.id = id;
 		this.salary = salary;
+		this.email = email;
 		this.name = name;
 	}
+	
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", salary=" + salary + ", name=" + name + "]";
+		return "Employee [id=" + id + ", salary=" + salary + ", email=" + email + ", name=" + name + "]";
 	}
 	public int getId() {
 		return id;
 	}
+	
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -48,6 +56,14 @@ public class Employee {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 		
 	
